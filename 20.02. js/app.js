@@ -13,21 +13,29 @@ karmir.addEventListener("mousemove",(event)=>
     sev.style.top = `${y}px`;
 })
 })
-// document.addEventListener("DOMContentLoaded", function(){
-//     var yndhanur = document.querySelector(".yndhanur");
-//     var small = this.getElementById("small");
 
-//     yndhanur.addEventListener("mousemove", function(event){
-//         small.style.left = `${event.clientX}px`;
-//         small.style.top = `${event.clientY}px`;
-//     });
-//     document.querySelectorAll(".color-box").forEach(box=>
-//     {
-//         box.addEventListener("mouseenter",function(){
-//             var newColor = this.getAttribute("data-color");
-//             small.style.backgroundColor = newColor;
-//         })
-//     }
-//     )
-// })
 
+
+document.addEventListener("click", function (event) {
+    const blackBox = document.getElementById("black-box");
+    
+    if (event.target.classList.contains("color-box")) {
+        switch (event.target.id) {
+            case "blue-box":
+                blackBox.style.backgroundColor = "orange";
+                break;
+            case "yellow-box":
+                blackBox.style.backgroundColor = "blue";
+                break;
+            case "orange-box":
+                blackBox.style.backgroundColor = "yellow";
+                break;
+        }
+    } else {
+        blackBox.style.backgroundColor = "black";
+    }
+
+    blackBox.style.left = `${event.clientX - 25}px`;
+    blackBox.style.top = `${event.clientY - 25}px`;
+    blackBox.style.display = "block";
+});
